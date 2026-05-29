@@ -25,24 +25,30 @@ Siehe Implementierung!
 \subsection*{3.1)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{plot-31.pdf}
+    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-1.pdf}
 \end{figure}
-Für kleine Werte von $\gamma$ konvergiert das Verfahren also viel schneller, insgesamt einigermaßen stabil bis inklusive $\gamma = 0.85$ und danach Zusammenbruch der Konvergenzgeschwindigkeit.
-Intuitiv macht es Sinn, da bei höherem $\gamma$ die Iteration weitsichtiger ist, es werden weiter in der Zukunft liegende Zustände mit gewichtet.
-Es geht also immer weniger um den unmittelbaren reward und immer mehr um den langfristig kumulierten reward.
+Je größer $\gamma$, desto mehr Iterationen bis zur Konvergenz. 
+Bei $\gamma = 0.99$ explodiert der Aufwand auf ungefähr 700 Iterationen, 
+da zukünftige Rewards stärker gewichtet werden und sich die Werte langsamer 
+durch das Grid ausbreiten.
+
 \subsection*{3.2)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{plot-32-1.pdf}
+    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-2.pdf}
 \end{figure}
-Man sieht, dass die größten beiden Werte für $\gamma$ auch den größten Reward nach 20 Schritten liefert.
-Intuitiv macht das Sinn:
-Größeres $\gamma$ $\Rightarrow$ langsamere Konvergenz $\Rightarrow$ insgesamt mehr über die wahre value-Funktion gelernt.
+Erst ab $\gamma \approx 0.8$ lernt die Policy eine sinnvolle Strategie. 
+Darunter ist der Zeithorizont zu kurz, um die hohen Rewards im Grid überhaupt 
+zu ``sehen'', weshalb der kumulierte Reward flach bei ungefähr 5 bleibt.
+
 \subsection*{3.3)}
-Wenn es um die Frage geht, welcher Wert für Gamma im Bezug auf die investierte Rechenleistung und den gewonnenen Reward das beste Preis-Leistungsverhältnis hat, lässt sich dies am einfachsten anhand eines Scores $\text{score} = \frac{\text{reward}}{\text{iteration}}$ abbilden:
+Das optimale $\gamma$ liegt bei $0.9$. 
+Ab dort ist der kumulierte Reward bereits nahezu maximal (ca.\ 93), 
+während der Rechenaufwand mit ungefähr 70 Iterationen noch deutlich unter 
+dem von $\gamma = 0.99$ (ca.\ 700 Iterationen) liegt.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{plot-32-2.pdf}
+    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-3.pdf}
 \end{figure}
 Man sieht, dass für $\gamma = 0.1$ der beste score entsteht, d.h. in diesem Fall ist das beste Preis-Leistungsverhältnis gegeben.
 \section*{4)}
@@ -55,11 +61,11 @@ Man sieht, dass die gefundene Policy die gleiche ist.
 \section*{5)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{plot-5-1.pdf}
+    \includegraphics[width=0.8\textwidth]{uebung2/plot-5-1.pdf}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{plot-5-2.pdf}
+    \includegraphics[width=0.8\textwidth]{uebung2/plot-5-2.pdf}
 \end{figure}
 Man sieht hier eine Darstellung der durchschnittlichen Rewards per Episode sowie der Rewards pro Step, per Episode über je 100 Episoden mit 2000 Steps und $\gamma = 0.9$, in Abhängigkeit von $\epsilon$.
 Offenbar ist der durchschnittliche Reward relativ unempfindlich gegen den Parameter $\epsilon$, solange er nicht extrem am Rand des Intervalls liegt und ungefähr $\leq 0.85$ ist.
