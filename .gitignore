@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# vscode workspace
+*.code-workspace
+
+# Nix files
+*.nix
+
+# latex build artifacts
+*.aux
+*.fls
+*.out
+*.synctex.gz
+*.fdb_latexmk
