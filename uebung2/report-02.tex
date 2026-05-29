@@ -25,7 +25,7 @@ Siehe Implementierung!
 \subsection*{3.1)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-1.pdf}
+    \includegraphics[width=0.8\textwidth]{plot-3-1.pdf}
 \end{figure}
 Je größer $\gamma$, desto mehr Iterationen bis zur Konvergenz. 
 Bei $\gamma = 0.99$ explodiert der Aufwand auf ungefähr 700 Iterationen, 
@@ -35,22 +35,20 @@ durch das Grid ausbreiten.
 \subsection*{3.2)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-2.pdf}
+    \includegraphics[width=0.8\textwidth]{plot-3-2.pdf}
 \end{figure}
 Erst ab $\gamma \approx 0.8$ lernt die Policy eine sinnvolle Strategie. 
 Darunter ist der Zeithorizont zu kurz, um die hohen Rewards im Grid überhaupt 
 zu ``sehen'', weshalb der kumulierte Reward flach bei ungefähr 5 bleibt.
 
 \subsection*{3.3)}
-Das optimale $\gamma$ liegt bei $0.9$. 
-Ab dort ist der kumulierte Reward bereits nahezu maximal (ca.\ 93), 
-während der Rechenaufwand mit ungefähr 70 Iterationen noch deutlich unter 
-dem von $\gamma = 0.99$ (ca.\ 700 Iterationen) liegt.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{uebung2/plot-3-3.pdf}
+    \includegraphics[width=0.8\textwidth]{plot-3-3.pdf}
 \end{figure}
-Man sieht, dass für $\gamma = 0.1$ der beste score entsteht, d.h. in diesem Fall ist das beste Preis-Leistungsverhältnis gegeben.
+Man sieht, dass für $\gamma = 0.85$ der beste $score =\frac{reward}{iterations}$ entsteht, d.h. in diesem Fall ist das beste Preis-Leistungsverhältnis gegeben.
+Dort liegt der kumulierte Reward bereits nahe am Maximum, während der Rechenaufwand mit unter 100 Iterationen noch überschaubar bleibt.
+Der Ausreißer $\gamma = 0$ ergibt zwar wegen der fast sofortigen Konvergenz einen guten Score, aber wie in 3.2 gesehen keine gute Policy.
 \section*{4)}
 Wir haben es nicht ersetzt sondern neu implementiert, siehe Zelle mit Aufgabe 4.
 Dort werden die nötigen Parameter konstruiert, die Funktion aufgerufen und das policy-Objekt so rekonstruiert, dass wir es plotten können.
@@ -61,14 +59,14 @@ Man sieht, dass die gefundene Policy die gleiche ist.
 \section*{5)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{uebung2/plot-5-1.pdf}
+    \includegraphics[width=0.8\textwidth]{plot-5-1.pdf}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{uebung2/plot-5-2.pdf}
+    \includegraphics[width=0.8\textwidth]{plot-5-2.pdf}
 \end{figure}
 Man sieht hier eine Darstellung der durchschnittlichen Rewards per Episode sowie der Rewards pro Step, per Episode über je 100 Episoden mit 2000 Steps und $\gamma = 0.9$, in Abhängigkeit von $\epsilon$.
 Offenbar ist der durchschnittliche Reward relativ unempfindlich gegen den Parameter $\epsilon$, solange er nicht extrem am Rand des Intervalls liegt und ungefähr $\leq 0.85$ ist.
-Beim Reward pro Step zeigt sich dagegen eine klare Präferenz für kleine Werte $\ge 0.07$, mit einem Maximum bei $0.07$ mit durchschnittlichem Reward pro Step von $1.91$.
+Beim Reward pro Step zeigt sich dagegen eine klare Präferenz für kleine Werte $\ge 0.07$, mit einem Maximum bei $0.21$ mit durchschnittlichem Reward pro Step von $1.96$.
 
 \end{document}
